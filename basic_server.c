@@ -32,6 +32,7 @@ int main() {
         }
 
         write(client_socket, res, BUFFER_SIZE);
+        printf("sent %s to client\n", res);
       }
 
       exit(0);
