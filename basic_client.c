@@ -3,10 +3,9 @@
 
 int main() {
 
-  int to_server;
-  int from_server;
+  int socket;
 
-  from_server = client_handshake();
+  socket = client_handshake();
 
   while (1) {
     char *req = malloc(BUFFER_SIZE);
@@ -20,10 +19,10 @@ int main() {
       break;
     }
 
-    write(to_server, req, BUFFER_SIZE);
+    write(socket, req, BUFFER_SIZE);
 
     char *res = malloc(BUFFER_SIZE);
-    read(from_server, res, BUFFER_SIZE);
+    read(socket, res, BUFFER_SIZE);
 
     printf("response: %s\n", res);
 
