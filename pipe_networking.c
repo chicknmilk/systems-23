@@ -25,7 +25,7 @@ int server_setup() {
   //DO STUFF
   listen(sd, 10);
 
-  free(hints)
+  free(hints);
   freeaddrinfo(results);
 
   return sd;
