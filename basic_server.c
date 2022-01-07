@@ -33,6 +33,8 @@ int main() {
 
         write(client_socket, res, BUFFER_SIZE);
       }
+
+      exit(0);
     }
     else close(client_socket);
 

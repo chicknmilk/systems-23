@@ -15,7 +15,7 @@ int server_setup() {
   hints->ai_family = AF_INET;
   hints->ai_socktype = SOCK_STREAM; //TCP socket
   hints->ai_flags = AI_PASSIVE; //only needed on server
-  getaddrinfo(NULL, 9845, hints, &results);  //Server sets node to NULL
+  getaddrinfo(NULL, "9845", hints, &results);  //Server sets node to NULL
 
   //create socket
   int sd = socket(results->ai_family, results->ai_socktype, results->ai_protocol);
