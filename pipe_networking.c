@@ -43,7 +43,7 @@ int server_connect(int from_client) {
   socklen_t sock_size;
   struct sockaddr_storage client_address;
   sock_size = sizeof(client_address);
-  client_socket = accept(sd,(struct sockaddr *)&client_address, &sock_size);
+  client_socket = accept(from_client,(struct sockaddr *)&client_address, &sock_size);
 
   return client_socket;
 }
