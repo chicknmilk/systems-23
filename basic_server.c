@@ -9,19 +9,21 @@ int toupper(int c) {
 
 int main() {
 
-  int to_client;
   int from_client;
+  int client_socket;
+
+  from_client = server_setup();
+
 
   while (1) {
-    from_client = server_setup();
+    client_socket = server_connect(from_client);
 
     char * res = calloc(BUFFER_SIZE, sizeof(char));
     int f = fork();
 
     if (!f) {
-      to_client = server_connect(from_client);
 
-      while (read(from_client, res, BUFFER_SIZE)) {
+      while (read(client_socket, res, BUFFER_SIZE)) {
         int i = 0;
 
         while (res[i]) {
@@ -29,7 +31,7 @@ int main() {
           i++;
         }
 
-        write(to_client, res, BUFFER_SIZE);
+        write(client_socket, res, BUFFER_SIZE);
       }
     }
 
