@@ -7,6 +7,7 @@
 #include <string.h>
 #include <errno.h>
 #include <sys/socket.h>
+#include <netdb.h>
 
 #ifndef NETWORKING_H
 #define NETWORKING_H
