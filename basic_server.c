@@ -34,7 +34,12 @@ int main() {
         write(client_socket, res, BUFFER_SIZE);
       }
     }
+    else close(client_socket);
+
+    printf("connection established\n");
 
   }
-  
+
+
+  return 0;
 }
